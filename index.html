@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <title>The Rum Diary</title>
-    <script src="https://slowfil.es/file?type=js&amp;delay=2000"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vuex"></script>
+    <script rel="preload" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script rel="preload" src="https://unpkg.com/vuex"></script>
     <script>
       // Adobe Target pre-hiding code snippet 
       ;(function(win, doc, style, timeout) {
@@ -47,8 +46,9 @@
         setTimeout(function() {
           removeStyle(getParent(), STYLE_ID);
         }, timeout);
-      }(window, document, "body {opacity: 0 !important}", 3000));
-    </script><script>
+      }(window, document, "body {opacity: 0 !important}", 1000));
+    </script>
+    <script>
       // advertisment mock
       const initAd = () => {
         const adSpace = document.querySelector('.main__advertising');
@@ -75,14 +75,11 @@
         loadMobileCSS();
       });
     </script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://slowfil.es/file?type=css&amp;delay=1000&amp;sync-in-head">
     <link rel="stylesheet" href="styles/index.css">
     <link  href="https://fonts.googleapis.com/css2?family=Architects+Daughter&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link rel="preload" href="background.jpg" as="image">
+    <link rel="preload" href="/assets/bite.webp" as="image">
+
     <link rel="preload" href="fonts/alegreya-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="fonts/alegreya-v29-latin-900.woff2" as="font" type="font/woff2" crossorigin="">
   </head>
@@ -93,7 +90,7 @@
   <header class="header__base">
     <div class="header__content">
       <a class="header__logo" href="#">
-        <img class="header__image" src="./logo.png">
+        <img class="header__image" src="./logo.svg">
       </a>
       <div class="header__navigation">
         <ul class="navigation__list">
@@ -150,19 +147,19 @@
 
       <div class="main__teasers main__section">
         <article class="teaser__base">
-          <img class="teaser__image card__img" src="./assets/first-party.webp"><hr>
+          <img class="teaser__image card__img" src="./assets/first-party.webp" data-src="./assets/first-party.webp" loading="lazy"><hr>
           <h1 class="teaser__title">First Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image card__img" src="./assets/second-party.webp"><hr>
+          <img class="teaser__image card__img" src="./assets/second-party.webp" data-src="./assets/second-party.webp" loading="lazy"><hr>
           <h1 class="teaser__title">Second Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image card__img" src="./assets/third-party.webp"><hr>
+          <img class="teaser__image card__img" src="./assets/third-party.webp" data-src="./assets/first-party.webp" loading="lazy"><hr>
           <h1 class="teaser__title">Third Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
@@ -177,7 +174,10 @@
       </div>
       
       <div class="main__video main__section">
-        <iframe src="https://player.vimeo.com/video/44265326?h=1e8b36c00b&autoplay=1&loop=1&byline=0&muted=1&controls=0 " width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <a href="https://player.vimeo.com/video/44265326?h=1e8b36c00b&autoplay=1&loop=1&byline=0&muted=1&controls=0">
+          <img src="/assets/video-placeholder.webp" alt="Video Thumbnail" width="640" height="360" loading="lazy">
+        </a>
+        
         <div class="form__base">
           <div class="form__intro">Something about lighthouses, describing point of the video we are putting here to prove how awesome they really are, no.</div>
           <div class="from__control">
@@ -209,5 +209,10 @@
       <div class="footer__sponsor">Powered by <a href="https://www.netcentric.biz/">Cognizant Netcentric</a></div>
     </div>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+
   <script src="script/app.js"></script>
 </body>
